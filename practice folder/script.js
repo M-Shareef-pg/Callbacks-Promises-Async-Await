@@ -71,17 +71,57 @@
 // }
 // getData(123);
 
-function orderPizza(callback) {
-  console.log("We Get Burger Order");
-  callback();
-}
+// function orderPizza(callback) {
+//   console.log("We Get Burger Order");
+//   callback();
+// }
 
-function pizzaDone() {
-  console.log("Order Done");
-}
+// function pizzaDone() {
+//   console.log("Order Done");
+// }
 
-function kiaHalhe() {
-  console.log("kiya hal he pas hogya");
-}
+// function kiaHalhe() {
+//   console.log("kiya hal he pas hogya");
+// }
 
-orderPizza(kiaHalhe);
+// orderPizza(kiaHalhe);
+
+// second example
+
+// const friend1 = (key) => {
+//   console.log("khalo beta mom phali");
+//   key();
+// };
+
+// const friend2 = () => {
+//   console.log("shokat mia ko goli lagi");
+// };
+
+// friend1(friend2);
+
+// const orderOne = (recipe) => {
+//   console.log("Order Recipe is .......");
+//   setTimeout(() => {
+//     console.log("Order is preparing...... ");
+//     recipe();
+//   }, 2000);
+// };
+
+// const orderTwo = () => {
+//   console.log("Order Done.........!");
+// };
+
+// orderOne(orderTwo);
+
+const getData = (data, getNextData) => {
+  setTimeout(() => {
+    if (getNextData) {
+      getNextData();
+    }
+    console.log("data", data);
+  }, 2000);
+};
+
+getData(1, () => {
+  getData(2);
+});
