@@ -99,19 +99,19 @@
 
 // friend1(friend2);
 
-// const orderOne = (recipe) => {
-//   console.log("Order Recipe is .......");
-//   setTimeout(() => {
-//     console.log("Order is preparing...... ");
-//     recipe();
-//   }, 2000);
-// };
+const orderOne = (data) => {
+  console.log("Order Recipe is .......");
+  setTimeout(() => {
+    console.log("Order is preparing...... ");
+    data();
+  }, 2000);
+};
 
-// const orderTwo = () => {
-//   console.log("Order Done.........!");
-// };
+const orderTwo = () => {
+  console.log("Order Done.........!");
+};
 
-// orderOne(orderTwo);
+orderOne(orderTwo);
 
 const getData = (data, getNextData) => {
   setTimeout(() => {
@@ -123,5 +123,11 @@ const getData = (data, getNextData) => {
 };
 
 getData(1, () => {
-  getData(2);
+  getData(2, () => {
+    getData(3, () => {
+      getData(4);
+    });
+  });
 });
+
+//promises
