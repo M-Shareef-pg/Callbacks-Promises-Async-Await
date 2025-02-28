@@ -99,35 +99,126 @@
 
 // friend1(friend2);
 
-const orderOne = (data) => {
-  console.log("Order Recipe is .......");
-  setTimeout(() => {
-    console.log("Order is preparing...... ");
-    data();
-  }, 2000);
-};
+// const orderOne = (data) => {
+//   console.log("Order Recipe is .......");
+//   setTimeout(() => {
+//     console.log("Order is preparing...... ");
+//     data();
+//   }, 2000);
+// };
 
-const orderTwo = () => {
-  console.log("Order Done.........!");
-};
+// const orderTwo = () => {
+//   console.log("Order Done.........!");
+// };
 
-orderOne(orderTwo);
+// orderOne(orderTwo);
 
-const getData = (data, getNextData) => {
-  setTimeout(() => {
-    if (getNextData) {
-      getNextData();
-    }
-    console.log("data", data);
-  }, 2000);
-};
+// const getData = (data, getNextData) => {
+//   setTimeout(() => {
+//     if (getNextData) {
+//       getNextData();
+//     }
+//     console.log("data", data);
+//   }, 2000);
+// };
 
-getData(1, () => {
-  getData(2, () => {
-    getData(3, () => {
-      getData(4);
-    });
-  });
-});
+// getData(1, () => {
+//   getData(2, () => {
+//     getData(3, () => {
+//       getData(4);
+//     });
+//   });
+// });
 
 //promises
+
+// let promise = new Promise((resolve, reject) => {
+//   console.log("I am Promise");
+//   resolve("Promise Promised");
+// });
+
+// function getData(dataId, getNextData) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("data", dataId);
+//       if (getNextData) {
+//         getNextData();
+//       }
+//     }, 3000);
+//   });
+// }
+
+// getData(123);
+
+// let myPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Burger is Ordered");
+//   }, 3000);
+// });
+
+// myPromise
+//   .then((message) => {
+//     console.log(message);
+//     return "Step 2: Burger is Cooking 🔥";
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return "Step 3: Burger is Ready 🍽️";
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return "Step 4: Eating the Burger 😋";
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return "Step 5: Meal Finished ✅";
+//   })
+//   .then((message) => {
+//     console.log(message);
+//   });
+
+
+
+  let myPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Step 1: Burger Ordered 🍔");
+    }, 2000);
+  });
+  
+  myPromise
+    .then((message) => {
+      console.log(message);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("Step 2: Burger is Cooking 🔥");
+        }, 2000);
+      });
+    })
+    .then((message) => {
+      console.log(message);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("Step 3: Burger is Ready 🍽️");
+        }, 2000);
+      });
+    })
+    .then((message) => {
+      console.log(message);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("Step 4: Eating the Burger 😋");
+        }, 2000);
+      });
+    })
+    .then((message) => {
+      console.log(message);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("Step 5: Meal Finished ✅");
+        }, 2000);
+      });
+    })
+    .then((message) => {
+      console.log(message);
+    });
+  
