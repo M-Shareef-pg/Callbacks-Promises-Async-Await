@@ -177,48 +177,92 @@
 //     console.log(message);
 //   });
 
+// let myPromise = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Step 1: Burger Ordered 🍔");
+//   }, 2000);
+// });
 
+// myPromise
+//   .then((message) => {
+//     console.log(message);
+//     return new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve("Step 2: Burger is Cooking 🔥");
+//       }, 2000);
+//     });
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve("Step 3: Burger is Ready 🍽️");
+//       }, 2000);
+//     });
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve("Step 4: Eating the Burger 😋");
+//       }, 2000);
+//     });
+//   })
+//   .then((message) => {
+//     console.log(message);
+//     return new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve("Step 5: Meal Finished ✅");
+//       }, 2000);
+//     });
+//   })
+//   .then((message) => {
+//     console.log(message);
+//   });
 
-  let myPromise = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Step 1: Burger Ordered 🍔");
-    }, 2000);
+// let randomNumber = Math.floor(Math.random() * 10);
+
+// let ans = new Promise((resolve, reject) => {
+//   if (randomNumber <= 5) {
+//     return resolve();
+//   } else {
+//     return reject();
+//   }
+// });
+
+// ans
+//   .then(() => {
+//     console.log("Resolved cuz Number is", randomNumber);
+//   })
+//   .catch(() => {
+//     console.log("Rejected cuz Number is", randomNumber);
+//   });
+
+let firstPromise = new Promise((resolve, reject) => {
+  return resolve("sogya");
+});
+
+let secondPromise = firstPromise.then((data) => {
+  console.log(data);
+  return new Promise((resolve, reject) => {
+    return resolve("uthgya");
   });
-  
-  myPromise
-    .then((message) => {
-      console.log(message);
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Step 2: Burger is Cooking 🔥");
-        }, 2000);
-      });
-    })
-    .then((message) => {
-      console.log(message);
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Step 3: Burger is Ready 🍽️");
-        }, 2000);
-      });
-    })
-    .then((message) => {
-      console.log(message);
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Step 4: Eating the Burger 😋");
-        }, 2000);
-      });
-    })
-    .then((message) => {
-      console.log(message);
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Step 5: Meal Finished ✅");
-        }, 2000);
-      });
-    })
-    .then((message) => {
-      console.log(message);
-    });
-  
+});
+
+let thirdPromise = secondPromise.then((data) => {
+  console.log(data);
+  return new Promise((resolve, reject) => {
+    return resolve("namaz pr gya");
+  });
+});
+
+let fourthPromise = thirdPromise.then((data) => {
+  console.log(data);
+  return new Promise((resolve, reject) => {
+    return resolve("coding shru krdi");
+  });
+});
+
+fourthPromise.then((data) => {
+  console.log(data);
+});
